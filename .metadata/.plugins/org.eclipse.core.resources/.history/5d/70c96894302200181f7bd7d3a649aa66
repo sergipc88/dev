@@ -1,0 +1,44 @@
+package com.BO;
+
+import java.util.Iterator;
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+
+import com.HibernateUtil.HibernateUtil;
+import com.entity.Siniestro;
+import com.entity.Vehiculo;
+
+
+public class VehiculoBO {
+	
+	public void alta(Vehiculo vehiculo, List<Siniestro>siniestros) {
+		
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Transaction transaction = session.beginTransaction();
+		
+		Iterator<Siniestro> it = siniestros.iterator();
+		while (it.hasNext()) {
+			Siniestro cadena = it.next();
+			vehiculo.getSiniestros().add(cadena);
+		}
+									    
+		session.save(vehiculo);
+		transaction.commit();
+		session.close();
+		
+	//	return id;
+	}
+	
+	
+	public List consultaBasica(){
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Query hqlQuery = session.createQuery("FROM  vehiculo");
+		List lista = hqlQuery.list();
+		
+		return lista;
+	}
+
+}

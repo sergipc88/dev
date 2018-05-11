@@ -1,0 +1,74 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+
+	<style>
+
+	body{
+		background-image: url("img/soccer-image-4.jpg");
+	}
+
+	.info{
+		display: inline-block;
+		border-right: 1px solid black
+		margin:0px;
+	}
+	.container{
+		
+		border-radius: 10px;
+		border:2px solid white;
+		margin:0px;
+		width: 816px;
+		margin: auto;
+	}
+	.celda{
+		display: inline-block;
+		border: 1px solid white;
+		margin:0px;
+		width: 260px;
+		padding: 5px;
+		height: 76px;
+		color: white;
+		font-weight: bold;
+
+	}
+	img{
+		margin-left: 10px;
+	}
+	li{text-decoration: none;}
+</style>
+
+
+
+
+
+
+
+
+<div class="container">
+<c:forEach var="equips" items="${equipos}"><a href="https://pablomonteserin.com"><div class="celda" >
+		<img src="img/${equips.foto_escudo}">
+		<div class="info">
+			<ul>
+				<li>${equips.nombre}</li>
+				<li>${equips.fundacion}</li>
+				<li>${equips.presidente}</li>
+			</ul>
+		</div>		
+</div></a></c:forEach>
+</div>	
+
+
+
+
+</body>
+</html>

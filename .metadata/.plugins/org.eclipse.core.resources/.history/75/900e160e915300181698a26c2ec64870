@@ -1,0 +1,31 @@
+package Actions;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+import entity.Paciente;
+
+public class RecuperarPacienteAction extends ActionSupport {
+	
+	private static final long serialVersionUID = -7530987481387853953L;
+	
+	private int id;
+	Paciente p = new Paciente();
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	
+	
+public String execute(){
+		
+		
+		
+		return SUCCESS;
+	}
+
+}

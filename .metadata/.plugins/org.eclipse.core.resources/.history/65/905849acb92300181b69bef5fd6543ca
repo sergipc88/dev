@@ -1,0 +1,5 @@
+package com.SergiCoches;
+
+public class VehiculoSiniestro {
+Vehiculo v new Vehiculo();
+}

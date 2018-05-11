@@ -1,0 +1,18 @@
+package Actions;
+
+import java.util.List;
+
+import BO.PacienteBO;
+import entity.Paciente;
+
+public class ConsultaAction {
+
+	PacienteBO pBO = new PacienteBO();
+	
+	
+	List<Paciente>lista = pBO.consulta();
+	
+	
+	
+	
+}

@@ -1,0 +1,62 @@
+package Actions;
+
+import java.util.List;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+import BO.LibroBO;
+import entity.Libro;
+
+public class LibroAction extends ActionSupport {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	Libro libro;
+	LibroBO lBO = new LibroBO();
+	private List <Libro>lista;
+	public Libro getLibro() {
+		return libro;
+	}
+	public void setLibro(Libro libro) {
+		this.libro = libro;
+	}
+	public List<Libro> getLista() {
+		return lista;
+	}
+	public void setLista(List<Libro> lista) {
+		this.lista = lista;
+	}
+	
+	
+	public String execute(){	
+		return SUCCESS;
+	}
+	
+	
+	
+	public String alta() {
+		
+		lBO.alta(libro);
+		
+		return SUCCESS;		
+	}
+	
+	public String recuperarLibro(){
+		libro = lBO.recuperarLibro(libro);		
+		return SUCCESS;
+	} 
+	
+	public String consulta() {
+		lista = lBO.selection();
+		return SUCCESS;
+	}
+	
+	
+	public String modificacion() {
+		lBO.update(libro);
+		return SUCCESS;
+	}
+}

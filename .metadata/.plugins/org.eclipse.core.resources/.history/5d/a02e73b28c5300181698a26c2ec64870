@@ -1,0 +1,30 @@
+package Actions;
+
+import java.util.Date;
+import java.util.List;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+import BO.PacienteBO;
+import entity.Paciente;
+
+public class AltaAction extends ActionSupport {
+
+	PacienteBO pBO = new PacienteBO();
+	Paciente p = new Paciente();
+	
+	private List <Paciente>lista;
+	private String nombre;
+	private Date fecha;
+	
+	
+	
+	
+	public String execute(){
+		
+		
+		
+		lista = pBO.consulta();
+		return SUCCESS;
+	}
+}

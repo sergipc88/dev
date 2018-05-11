@@ -1,0 +1,29 @@
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+	
+
+<struts>
+
+<constant name="struts.mapper.action.prefix.enabled" value="true"/>
+<constant name="struts.custom.i18n.resources" value="global" />
+
+	<package name="com.pablomonteserin.action" extends="struts-default">
+		<action  name="consulta" class="Actions.LibroAction" method="consulta">
+			<result name="success">/consulta.jsp</result>
+		</action>
+		<action  name="alta" class="Actions.LibroAction" method="alta">
+			<result type="redirectAction">consulta</result>
+		</action>
+		<action  name="mandarid" class="Actions.LibroAction" method="recuperarLibro">
+		<result name="success">/modificacion.jsp</result>
+		</action>
+		<action  name="modificar" class="Actions.LibroAction" method="modificacion">
+			<result type="redirectAction">consulta</result>
+		</action>
+		<action  name="eliminar" class="Actions.LibroAction" method="borrar">
+			<result type="redirectAction">consulta</result>
+		</action>
+		
+	</package>
+</struts>

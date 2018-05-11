@@ -1,0 +1,133 @@
+package com.SergiCesfExamen;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class LibroBO {
+	
+	public boolean insert(String a, String b, int c) {
+		boolean bok = checking(b);
+		Connection conn;
+		if (bok == false) {
+
+			try {
+				conn = getConnection();
+				PreparedStatement pstmt = conn.prepareStatement("INSERT INTO libros VALUES (?,?,?)");
+				pstmt.setString(1, a);
+				pstmt.setString(2, b);
+				pstmt.setInt(3, c);
+				pstmt.execute();
+				pstmt.close();
+				conn.close();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return bok;
+	}
+
+	public void remove(String del) {
+		Connection conn;
+		try {
+			conn = getConnection();
+			PreparedStatement pstmt = conn.prepareStatement("DELETE FROM libros  WHERE isbn=(?)");
+			pstmt.setString(1, del);
+			pstmt.execute();
+			pstmt.close();
+			conn.close();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}	
+	
+	
+	public List<Libro> list(int minPrice) {
+		Connection conn;
+		List<Libro> lib = new ArrayList<>();
+		try {
+			conn = getConnection();
+			PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM libros");
+			ResultSet res = pstmt.executeQuery();
+			while (res.next()) {
+				Libro libro  = new Libro();
+				libro.setTitulo(res.getString("titulo"));
+				libro.setIsbn(res.getString("isbn"));
+				libro.setPrecio(res.getInt("precio"));
+				
+				if(libro.g) {
+					
+				}
+				
+				lib.add(libro);
+			}
+			pstmt.close();
+			conn.close();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return lib;
+	}	
+		
+	private boolean checking(String isbn) {
+
+		boolean bok = false;
+		Connection conn;
+		try {
+			conn = getConnection();
+			PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM libros where isbn = ?");
+			pstmt.setString(1, isbn);
+			ResultSet libros = pstmt.executeQuery();
+			bok = libros.next();
+			pstmt.close();
+			conn.close();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return bok;
+	}
+	
+	public Connection getConnection() throws ClassNotFoundException {
+
+		// Aquí viene el código que falta
+		Connection databaseConnection = null;
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			// Define the data source for the driver
+			String sourceURL = "jdbc:mysql://localhost/biblioteca";
+			// Create a connection through the DriverManager
+			databaseConnection = DriverManager.getConnection(sourceURL, "root", "");
+
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return databaseConnection;
+	}
+
+}

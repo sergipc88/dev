@@ -1,0 +1,19 @@
+package com.BO;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import com.HibernateUtil.HibernateUtil;
+import com.entity.Paciente;
+
+public class PacienteBO {
+
+	
+	public void alta(Paciente p) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Transaction transaction = session.beginTransaction();
+		session.save(p);
+		transaction.commit();
+		session.close();
+	}
+}

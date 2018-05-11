@@ -1,0 +1,16 @@
+package com.entity;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+public class Vehiculo {
+	 @Id
+	 @GeneratedValue(strategy=GenerationType.IDENTITY)//Para generar números autoincrementados
+	 int id_vehiculo;
+	 String matricula;
+	 int asientos;
+	 int ruedas;
+	 String marca;
+
+}

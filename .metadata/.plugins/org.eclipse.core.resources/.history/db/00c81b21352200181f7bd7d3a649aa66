@@ -1,0 +1,62 @@
+package com.BO;
+
+import java.util.Iterator;
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+
+import com.HibernateUtil.HibernateUtil;
+import com.entity.Siniestro;
+import com.entity.Vehiculo;
+
+
+public class VehiculoBO {
+	
+	public void alta(Vehiculo vehiculo, List<Siniestro>siniestros) {
+		
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Transaction transaction = session.beginTransaction();
+		
+		Iterator<Siniestro> it = siniestros.iterator();
+		while (it.hasNext()) {
+			Siniestro cadena = it.next();
+			vehiculo.getSiniestros().add(cadena);
+		}
+									    
+		session.save(vehiculo);
+		transaction.commit();
+		session.close();
+		
+	//	return id;
+	}
+	
+	
+	public List<Vehiculo>consultaBasica(){
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Query<Vehiculo> hqlQuery = session.createQuery("FROM  Vehiculo");
+		List<Vehiculo>lista = hqlQuery.list();
+		
+		return lista;
+	}
+	
+	public List<Vehiculo>consultaOrdenada(){
+		
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Query<Vehiculo> hqlQuery = session.createQuery("FROM  Vehiculo ORDER BY ruedas");
+		List<Vehiculo>lista = hqlQuery.list();
+		
+		return lista;		
+	}
+	
+	
+	public List<Vehiculo>consultaAnd(){
+	Session session = HibernateUtil.getSessionFactory().openSession();	
+	String queryString = "FROM Vehiculo WHERE asientos > ? AND ruedas > ?";
+	Query hqlQuery2 = session.createQuery(queryString).setParameter(0,2).setParameter(1, 2);
+	List lista = hqlQuery2.list();
+	
+	return lista;
+	}
+}

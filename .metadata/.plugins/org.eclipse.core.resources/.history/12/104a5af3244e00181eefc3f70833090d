@@ -1,0 +1,17 @@
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="com.pablomonteserin.action" extends="struts-default">
+		<action name="verJugadores" class="com.pablomonteserin.action.JugadorAction"
+			method="verJugadores">
+			<result>/jugadores.jsp</result>
+		</action>
+		<action name="verEquipos" class="com.pablomonteserin.action.EquipoAction"
+			method="verEquipos">
+			<result>/equipos.jsp</result>
+		</action>
+
+	</package>
+</struts>

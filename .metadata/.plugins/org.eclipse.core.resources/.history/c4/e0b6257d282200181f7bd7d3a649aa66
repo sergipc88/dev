@@ -1,0 +1,66 @@
+package com.BO;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import com.HibernateUtil.HibernateUtil;
+import com.entity.Siniestro;
+import com.entity.Vehiculo;
+
+
+public class VehiculoBO {
+	
+	public void alta(Vehiculo vehiculo, List<Siniestro>siniestros) {
+		
+		SimpleDateFormat s = new SimpleDateFormat("dd-MM-yyyy");
+		
+
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Transaction transaction = session.beginTransaction();
+		Vehiculo a = new Vehiculo();
+		
+		a.setMatricula("1557BVF");
+		a.setAsientos(5);
+		a.setRuedas(4);
+		a.setMarca("volvo");
+			
+			Siniestro sini1 = new Siniestro();
+			Siniestro sini2 = new Siniestro();
+		
+			try {
+				sini1.setFecha(s.parse("03-12-2015"));
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+			sini1.setPerdida(2500);
+			sini1.setVehiculo(a);
+	    
+		a.getSiniestros().add(sini1);
+			
+			try {
+				sini2.setFecha(s.parse("08-05-2016"));
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	
+			
+			sini2.setPerdida(300);
+			sini2.setVehiculo(a);
+					
+		a.getSiniestros().add(sini2);
+	    
+		session.save(a);
+		transaction.commit();
+		session.close();
+		
+	//	return id;
+	}
+
+}

@@ -1,0 +1,94 @@
+package Actions;
+
+import java.util.Date;
+import java.util.List;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+import BO.PacienteBO;
+import entity.Paciente;
+
+public class AltaAction extends ActionSupport {
+
+	PacienteBO pBO = new PacienteBO();
+	Paciente p = new Paciente();
+	
+	
+	private String nombre;
+	private String apellido;
+	private Date fecha;
+	
+	
+
+
+	public String getNombre() {
+		return nombre;
+	}
+
+
+
+
+
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+
+
+
+
+
+
+	public String getApellido() {
+		return apellido;
+	}
+
+
+
+
+
+
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+
+
+
+
+
+
+
+	public Date getFecha() {
+		return fecha;
+	}
+
+
+
+
+
+
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+
+
+
+	
+
+
+
+	public String execute(){
+		
+		p.setNombre(nombre);
+		p.setApellido(apellido);
+		p.setFecha(fecha);
+		
+		pBO.alta(p);
+		
+		return SUCCESS;
+	}
+}

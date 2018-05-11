@@ -1,0 +1,10 @@
+package com.entity;
+
+public class Vehiculo {
+	
+	 String matricula;
+	 int asientos;
+	 int ruedas;
+	 String marca;
+
+}

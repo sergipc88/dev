@@ -1,0 +1,33 @@
+package com.SergiCoches;
+
+import java.util.Scanner;
+
+import com.BO.VehiculoBO;
+
+public class Main {
+	private static Scanner lector = new Scanner(System.in);
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		VehiculoBO vBO = new VehiculoBO();
+		boolean serverON = true;
+		
+		while(serverON) {
+			System.out.println("inserta el vehiculo");
+			System.out.println("matricula");
+			String matricula = lector.next();
+			System.out.println("asientos");
+			int asientos = lector.nextInt();
+			System.out.println("ruedas");
+			int ruedas = lector.nextInt();
+			System.out.println("marcas");
+			String marca = lector.next();
+			
+			
+		}
+		
+		
+		vBO.alta();
+		
+	}
+
+}

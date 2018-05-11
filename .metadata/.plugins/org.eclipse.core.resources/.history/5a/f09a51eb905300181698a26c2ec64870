@@ -1,0 +1,45 @@
+package Actions;
+
+import java.util.List;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+import BO.PacienteBO;
+import entity.Paciente;
+
+public class ConsultaAction extends ActionSupport {
+
+	
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2591040582843988581L;
+	
+	
+	PacienteBO pBO = new PacienteBO();
+	private List <Paciente>lista;
+	
+	
+	
+	
+	public List<Paciente> getLista() {
+		return lista;
+	}
+
+
+
+
+	public void setLista(List<Paciente> lista) {
+		this.lista = lista;
+	}
+
+
+
+
+	public String execute(){
+		lista = pBO.consulta();
+		return SUCCESS;
+	}
+	
+}

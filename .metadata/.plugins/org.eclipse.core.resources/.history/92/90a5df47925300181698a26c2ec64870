@@ -1,0 +1,72 @@
+package Actions;
+
+import java.util.Date;
+import java.util.List;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+import BO.LibroBO;
+import entity.Libro;
+
+
+
+public class AltaAction extends ActionSupport {
+
+	String titulo;
+	int precio;
+	
+	Libro l = new Libro();
+	LibroBO lBO = new LibroBO();
+	
+	
+	
+	
+	
+public String getTitulo() {
+		return titulo;
+	}
+
+
+
+
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+
+
+
+
+	public int getPrecio() {
+		return precio;
+	}
+
+
+
+
+
+	public void setPrecio(int precio) {
+		this.precio = precio;
+	}
+
+
+
+
+
+public String execute(){
+		l.setTitulo(titulo);
+		l.setPrecio(precio);
+		
+		lBO.alta(L);
+		
+		
+		return SUCCESS;
+	}
+
+	
+
+		
+		
+	
+}

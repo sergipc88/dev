@@ -1,0 +1,39 @@
+package com.BO;
+
+
+
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+
+import org.hibernate.Session;
+
+import com.HibernateUtil.HibernateUtil;
+import com.entity.Autor;
+import com.entity.Libro;
+
+public class LibroBO {
+	
+public void alta(Autor autor, String titulo) {
+		
+		Session session = HibernateUtil.getSessionFactory().openSession();
+//		Transaction transaction = session.beginTransaction();
+//		Libro lib = new Libro(titulo, autor);
+//		session.save(lib);
+//		transaction.commit();
+//		session.close();
+//		HibernateUtil.shutdown();
+		
+		CriteriaBuilder builder = session.getCriteriaBuilder();
+		CriteriaQuery criteria = builder.createQuery(Libro.class);
+		Root<Autor> root = criteria.from(Autor.class);
+//		criteria.select(root).where(builder.equal(root.get("nombre"), "Juan"));
+		criteria.select(root).where(builder.like(root.get("titulo"), "%titulo1%"));
+		TypedQuery<Libro> q=session.createQuery(criteria);
+				
+		//List<Autor> list = q.getResultList();
+		Autor cicloResultado = q.getSingleResult();
+	}
+
+}

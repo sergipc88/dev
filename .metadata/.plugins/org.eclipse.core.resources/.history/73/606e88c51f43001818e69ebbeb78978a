@@ -1,0 +1,8 @@
+package com.futbolBO;
+
+public class EquipoBO {
+
+	List<Equipo>consultaEquipo(){
+		
+	}
+}

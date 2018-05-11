@@ -1,0 +1,27 @@
+package com.BO;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+import com.HibernateUtil.HibernateUtil;
+import com.entity.Paciente;
+
+public class PacienteBO {
+
+	
+	public void alta(Paciente p) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Transaction transaction = session.beginTransaction();
+		session.save(p);
+		transaction.commit();
+		session.close();
+	}
+	
+	public void baja(int id) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		String queryString = "delete from Paciente where id=?";
+		Query hqlQuery = session.createQuery(queryString);
+		hqlQuery.setParameter (0, id);
+		hqlQuery.executeUpdate();
+	}
+}

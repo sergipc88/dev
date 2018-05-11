@@ -1,0 +1,34 @@
+package Actions;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+import entity.Libro;
+
+public class ModificacionAction extends ActionSupport{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2607514562877996264L;
+
+	Libro l;
+	LibroBO lBO = new LibroBO();
+
+	public Libro getL() {
+		return l;
+	}
+
+	public void setL(Libro l) {
+		this.l = l;
+	}
+	
+	
+	public String execute(){
+		
+		lBO.recuperarLibro(id);
+			
+			
+			return SUCCESS;
+		}
+	
+}

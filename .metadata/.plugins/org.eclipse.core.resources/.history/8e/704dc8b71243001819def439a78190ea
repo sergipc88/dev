@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<style>
+	body{
+	margin: auto;
+	width: 100%;
+	}
+		.container{
+			text-align: center;
+			background-color: yellow;
+			width: 600px;
+			border: 2px solid black;
+			margin: auto;
+			padding: 20px;
+		}
+
+		a{
+			padding: 10px;
+		}
+	</style>
+
+<div class="container">
+	
+	<a href="alta.jsp">Añadir invitado</a> <br>
+	<a href="baja.jsp">Eliminar invitado</a> <br>
+	<a href="Consulta.jsp">Modificar</a>
+</div>
+
+
+
+</body>
+</html>

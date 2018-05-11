@@ -1,0 +1,191 @@
+package com.SergiCoches;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Scanner;
+import com.BO.VehiculoBO;
+import com.entity.Siniestro;
+import com.entity.Vehiculo;
+
+public class Main {
+	
+	private static Scanner lector = new Scanner(System.in);
+	VehiculoBO vBO = new VehiculoBO();
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Main main = new Main();
+		boolean serverON = true;
+		
+
+		while(serverON) {
+			System.out.println("elije opcion");
+			System.out.println("1.alta");
+			System.out.println("2.consultar");
+			System.out.println("3.consulta ordenada");
+			System.out.println("4.consulta ejercicio 3");
+			System.out.println("5.consulta ejercicio 4");
+			System.out.println("6.consulta tamaño matricula");
+			System.out.println("7.consulta con siniestros 1(ejercicio 6)");
+			System.out.println("8.consulta con siniestros 2(ejercicio 7)");
+			
+			int opt1 = lector.nextInt();
+			
+			main.opcionEscogida(opt1);
+	
+		}
+		
+	}
+	
+	
+	
+	void opcionEscogida(int opt) {
+		
+		
+		switch(opt){
+		
+		case 1:
+			darDeAlta();
+			break;
+		case 2:
+			List<Vehiculo>consulta = vBO.consultaBasica();
+			Iterator<Vehiculo> it = consulta.iterator();
+			while (it.hasNext()) {
+				Vehiculo cadena = it.next();
+				System.out.println(cadena.getMatricula());
+			}
+			
+			break;
+		case 3:
+			List<Vehiculo>consultaOrdenada = vBO.consultaOrdenada();
+			Iterator<Vehiculo> it2 = consultaOrdenada.iterator();
+			while (it2.hasNext()) {
+				Vehiculo cadena = it2.next();
+				System.out.println(cadena.getMatricula()+" "+ cadena.getMarca());
+			}
+			break;
+		case 4:
+			List<Vehiculo>consulta3 = vBO.consultaAnd();
+			Iterator<Vehiculo> it3 = consulta3.iterator();
+			while (it3.hasNext()) {
+				Vehiculo cadena = it3.next();
+				System.out.println(cadena.getMatricula());
+			}
+			break;
+		case 5:
+			List<Vehiculo>consulta4 = vBO.consultaOr();
+			Iterator<Vehiculo> it4 = consulta4.iterator();
+			while (it4.hasNext()) {
+				Vehiculo cadena = it4.next();
+				System.out.println(cadena.getMatricula());
+			}
+			break;
+		case 6:
+			List<Vehiculo>consulta5 = vBO.consultaMatriculaLength();
+			Iterator<Vehiculo> it5 = consulta5.iterator();
+			while (it5.hasNext()) {
+				Vehiculo cadena = it5.next();
+				System.out.println(cadena.getMatricula());
+			}
+			
+			break;
+		case 7:
+			List<Vehiculo>consulta6 = vBO.consultaConSiniestro();
+			Iterator<Vehiculo> it6 = consulta6.iterator();
+			while (it6.hasNext()) {
+				Vehiculo cadena = it6.next();
+				System.out.println(cadena.getMatricula());
+			}
+			
+			break;
+		case 8:
+			List<VehiculoSiniestro>consulta7 = vBO.consultaConPerdida2();
+			Iterator<VehiculoSiniestro> it7 = consulta7.iterator();
+			while (it7.hasNext()) {
+				VehiculoSiniestro cadena = it7.next();
+				
+				System.out.println(cadena.getVehiculo().getMatricula()+ " "+cadena.getPerdida());
+//			System.out.println(((Vehiculo)cadena.get(0)).getAsientos()+" "+((Integer)cadena.get(1)));
+				
+				
+				
+			}
+			
+			break;
+		default:
+			break;
+			
+		}
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	void darDeAlta(){
+		
+		List<Siniestro>siniestros = new ArrayList<>();
+		Vehiculo v = new Vehiculo();
+		System.out.println("inserta el vehiculo");
+		System.out.println("matricula");
+		String matricula = lector.next();
+		System.out.println("asientos");
+		int asientos = lector.nextInt();
+		System.out.println("ruedas");
+		int ruedas = lector.nextInt();
+		System.out.println("marcas");
+		String marca = lector.next();
+		
+		v.setMatricula(matricula);
+		v.setAsientos(asientos);
+		v.setRuedas(ruedas);
+		v.setMarca(marca);
+		
+			boolean sinis = true;
+			while(sinis) {
+				
+				System.out.println("insertar sientros ? (s,n) ");
+				String opt = lector.next();
+				if(opt.equals("s")) {
+					
+					Siniestro sini = new Siniestro();	
+					System.out.println("inserta el siniestro");
+					System.out.println("fecha");
+					String fecha = lector.next();
+					SimpleDateFormat s = new SimpleDateFormat("dd-MM-yyyy");					
+					System.out.println("perdida");
+					int perdida = lector.nextInt();
+					
+					try {
+						sini.setFecha(s.parse(fecha));
+						sini.setPerdida(perdida);
+						sini.setVehiculo(v);
+					} catch (ParseException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+						
+						siniestros.add(sini);	
+						
+						
+				}else if(opt.equals("n")){
+				 sinis = false;	
+				}
+			
+			}
+			
+			
+			vBO.alta(v, siniestros);
+		
+		
+	}
+
+}

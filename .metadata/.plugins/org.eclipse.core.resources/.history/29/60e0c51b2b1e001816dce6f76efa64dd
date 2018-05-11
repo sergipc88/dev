@@ -1,0 +1,33 @@
+package com.BO;
+
+
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import com.HibernateUtil.HibernateUtil;
+import com.entity.Autor;
+import com.entity.Libro;
+
+public class AutorBO {
+
+	public void alta(String nombre, String titulo, String titulo2, String titulo3) {
+
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Transaction transaction = session.beginTransaction();
+		Autor a = new Autor();
+		a.setNombre(nombre);
+		Libro libro1 = new Libro(titulo, a);
+		Libro libro2 = new Libro(titulo2, a);
+		Libro libro3 = new Libro(titulo3, a);
+		List <Libro> libros = a.getLibros();
+		libros.add(libro1);
+		libros.add(libro2);
+		libros.add(libro3);
+		session.save(a);
+		transaction.commit();
+		session.close();
+		
+	}
+}

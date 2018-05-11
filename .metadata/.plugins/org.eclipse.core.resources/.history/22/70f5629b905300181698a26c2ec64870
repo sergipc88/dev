@@ -1,0 +1,20 @@
+package Actions;
+
+import java.util.Date;
+import java.util.List;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+import BO.PacienteBO;
+import entity.Paciente;
+
+public class AltaAction extends ActionSupport {
+
+	
+	
+	
+
+		
+		return SUCCESS;
+	}
+}

@@ -1,0 +1,24 @@
+package com.futbolBO;
+
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.query.Query;
+import com.HibernateUtil.HibernateUtil;
+import com.futbolEntity.Jugador;
+
+public class JugadorBO {
+	
+public List <Jugador> consultajugadores(int codigoEquipo){
+		
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Query hqlQuery = session.createQuery("FROM Jugador WHERE equipo_cod = (:condicion)");
+		hqlQuery.setParameter("condicion", codigoEquipo);
+		List<Jugador> jugadores = hqlQuery.list();
+		
+		session.close();
+		
+		return jugadores;
+	}
+
+}

@@ -1,0 +1,10 @@
+package z.struts.action;
+
+public class Sumar {
+
+	private int n1;
+	private int n2;
+	
+	
+	
+}

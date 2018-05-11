@@ -1,0 +1,46 @@
+package Actions;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+import BO.LibroBO;
+import entity.Libro;
+
+
+public class RecuperarLibroAction extends ActionSupport {
+	
+	private static final long serialVersionUID = -7530987481387853953L;
+	
+	private int id;
+	Libro l = new Libro();
+	LibroBO lBO = new LibroBO();
+	
+	
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}	
+	
+	public Libro getL() {
+		return l;
+	}
+
+	public void setL(Libro l) {
+		this.l = l;
+	}
+
+	
+	
+	
+	public String execute(){
+		
+	
+		
+		
+		return SUCCESS;
+	}
+
+}

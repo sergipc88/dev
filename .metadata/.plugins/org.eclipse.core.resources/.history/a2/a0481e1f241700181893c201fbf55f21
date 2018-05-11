@@ -1,0 +1,91 @@
+package com.BBDDInvitados;
+
+import java.util.Iterator;
+import java.util.List;
+import java.util.Scanner;
+
+
+
+public class Main {
+	
+	private static Scanner lector;
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Main main = new Main();
+		int opt;
+		boolean serverON = false;
+		lector = new Scanner(System.in);
+
+		while (!serverON) {
+
+			System.out.println("1.alta");
+			System.out.println("2.baja");
+			System.out.println("3.modificacion");
+			System.out.println("4.consulta");
+			System.out.println(" ");
+			System.out.println("elije opcion");
+			opt = lector.nextInt();
+			main.eleccion(opt);
+			
+			
+		}
+		
+	}	
+		
+		// en el metodo eleccion se hace una cosa u otra dependiendo lo que haya elegido
+		// // el usuario
+		public void eleccion(int opt1) {
+			InvitadoBO inv = new InvitadoBO();
+			String nombre;	
+			lector = new Scanner(System.in);
+
+			switch (opt1) {
+
+			case 1:// alta
+				System.out.println("insertar invitado ...");
+				System.out.println("introduce el nombre");
+				nombre = lector.next();
+				inv.insertar(nombre);
+				System.out.println("insertando ...");	
+				System.out.println(" ");
+				break;
+			case 2:// baja
+				System.out.println("introduce el Nombre del invitado a eliminar");
+				nombre = lector.next();
+				inv.eliminar(nombre);
+				break;
+			case 3:// modificacion
+				System.out.println("inserta el Nombre del invitado a modificar");
+				nombre = lector.next();
+				System.out.println("introduce nombre");
+				nombre = lector.next();
+				
+				break;
+			case 4:// consulta
+				System.out.println("Recuperando...");
+				System.out.println(" ");
+				
+				System.out.println(" ");
+				break;
+		
+			default:
+				break;
+			}
+
+		}
+
+		
+
+		
+
+		
+		
+		
+		
+	}
+	
+		
+		
+
+

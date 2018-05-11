@@ -1,0 +1,20 @@
+package com.SergiCesfLibreria;
+
+import com.BO.AutorBO;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		AutorBO abo = new AutorBO();
+		String nombre = "pablo";
+		String titulo = "css";
+		String titulo2 = "jquery";
+		String titulo3 = "java";
+		
+		abo.alta(nombre, titulo, titulo2, titulo3);
+					
+		
+	}
+
+}

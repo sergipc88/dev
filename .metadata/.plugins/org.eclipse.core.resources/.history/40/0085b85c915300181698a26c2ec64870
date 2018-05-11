@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+</head>
+<body>
+	<div class="container">
+		<div class="celda">
+			<form action="alta">
+				
+				<input type="text" name="titulo" placeholder="introduce el titulo"><br><br>
+				<input type="text" name="precio">				
+				<input type="hidden" name="action" value="alta" />
+				<input type="submit" value="Dar de alta">
+			</form>		
+		</div>
+		
+	</div>
+
+</body>
+</html>

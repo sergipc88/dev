@@ -1,0 +1,46 @@
+package com.sergi.amor2;
+
+public class sumaBO {
+	
+	public int distribucion(int x, int y, String act) {
+		
+		int resultado = 0;
+		
+		switch(act){
+			case "+":
+				break;
+			case "-":
+				break;
+			case "*":
+				break;
+			case "/":
+				break;
+			default:
+				break;
+		}
+		
+		
+		
+		
+		return resultado;
+	}
+
+	
+	private  void sumar(){
+		
+	}
+	
+	private void restar(){
+		
+	}
+	
+	private void multiplicar(){
+		
+	}
+	
+	private void dividir(){
+		
+	}
+	
+	
+}

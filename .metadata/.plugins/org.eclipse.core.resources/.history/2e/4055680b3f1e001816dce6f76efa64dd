@@ -1,0 +1,42 @@
+package com.entity;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+
+
+@Entity
+public class Autor {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)//Para generar números autoincrementados
+	int id;
+	String nombre;
+	@OneToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER) //eager = carga ansiosa
+	List<Libro> libros = new ArrayList<>();
+		
+
+	
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public List<Libro> getLibros() {
+		return libros;
+	}
+	public void setLibros(List<Libro> libros) {
+		this.libros = libros;
+	}
+	
+	
+	
+}

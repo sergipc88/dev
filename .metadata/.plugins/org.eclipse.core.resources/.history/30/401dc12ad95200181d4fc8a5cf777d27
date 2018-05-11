@@ -1,0 +1,23 @@
+package Actions;
+
+import java.util.List;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+import BO.PacienteBO;
+import entity.Paciente;
+
+public class ConsultaAction extends ActionSupport {
+
+	PacienteBO pBO = new PacienteBO();
+	
+	
+	
+	
+	
+	public String execute(){
+		List<Paciente>lista = pBO.consulta();
+		return SUCCESS;
+	}
+	
+}

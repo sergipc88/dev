@@ -1,0 +1,19 @@
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="com.pablomonteserin.action" extends="struts-default">
+		<action  name="consulta" class="Actions.ConsultaAction">
+			<result name="success">/consulta.jsp</result>
+		</action>
+		<action  name="alta" class="Actions.AltaAction">
+			<result type="redirectAction">consulta</result>
+		</action>
+		<action  name="mandarid" class="Actions.RecuperarLibroAction">
+		<result name="success">/modificacion.jsp</result>
+		</action>
+		
+		
+	</package>
+</struts>

@@ -1,0 +1,58 @@
+package Actions;
+
+import java.util.List;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+import BO.LibroBO;
+import entity.Libro;
+
+
+public class ConsultaAction extends ActionSupport {
+
+	
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2591040582843988581L;
+	
+	
+	LibroBO lBO = new LibroBO();
+	private List <Libro>lista;
+	
+	
+	
+	
+	
+
+
+
+	public List<Libro> getLista() {
+		return lista;
+	}
+
+
+
+
+
+
+
+
+	public void setLista(List<Libro> lista) {
+		this.lista = lista;
+	}
+
+
+
+
+
+
+
+
+	public String execute(){
+		lista = lBO.selection();
+		return SUCCESS;
+	}
+	
+}

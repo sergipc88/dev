@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<action name="Saludar" class="com.pablomonteserin.action.SaludarAction">
+	<result name="success">/pagina2.jsp</result>
+</action>

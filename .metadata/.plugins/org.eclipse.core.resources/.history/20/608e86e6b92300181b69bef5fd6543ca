@@ -1,0 +1,11 @@
+package com.SergiCoches;
+
+import com.entity.Siniestro;
+import com.entity.Vehiculo;
+
+
+public class VehiculoSiniestro {
+private Vehiculo vehiculo;
+
+
+}

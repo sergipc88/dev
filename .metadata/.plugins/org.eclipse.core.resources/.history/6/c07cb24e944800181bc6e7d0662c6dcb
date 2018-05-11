@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+</head>
+<body>
+	<div class="container">
+		<div class="celda">
+			<form action="Seur">
+				<input type="text" name="nombre" placeholder="introduce el nombre">
+				<input type="text" name="apellido" placeholder="introduce el apellido"><br>
+				<input type="date">				
+				<input type="hidden" name="action" value="alta" />
+				<input type="submit" value="Dar de alta">
+			</form>		
+		</div>
+		
+	</div>
+
+</body>
+</html>

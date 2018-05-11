@@ -1,0 +1,32 @@
+package com.SergiHospital;
+
+import java.util.Scanner;
+
+
+public class Main {
+
+	private static Scanner lector = new Scanner(System.in);
+	
+	public static void main(String[] args) {
+		Main main = new Main();
+		boolean serverON = true;
+
+		while (serverON) {
+			System.out.println("elije opcion");
+			System.out.println("1.alta");
+			System.out.println("2.consultar");
+			System.out.println("3.consulta ordenada");
+			System.out.println("4.consulta ejercicio 3");
+			System.out.println("5.consulta ejercicio 4");
+			System.out.println("6.consulta tamaño matricula");
+			System.out.println("7.consulta con siniestros 1(ejercicio 6)");
+			System.out.println("8.consulta con siniestros 2(ejercicio 7)");
+
+			int opt1 = lector.nextInt();
+
+			main.opcionEscogida(opt1);
+
+	}
+
+		void opcionEscogida(int opt) {}
+}

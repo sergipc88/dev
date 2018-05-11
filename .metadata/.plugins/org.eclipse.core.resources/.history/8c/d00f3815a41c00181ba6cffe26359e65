@@ -1,0 +1,31 @@
+package com.SergiCesfExamen;
+
+public class Libro {
+	private String titulo;
+	private String isbn;
+	private String precio;
+	
+	
+	
+	public String getTitulo() {
+		return titulo;
+	}
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+	public String getIsbn() {
+		return isbn;
+	}
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
+	}
+	public String getPrecio() {
+		return precio;
+	}
+	public void setPrecio(String precio) {
+		this.precio = precio;
+	}
+	
+	
+
+}

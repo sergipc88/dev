@@ -1,0 +1,16 @@
+package com.LibroEntity;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+
+public class Libro {
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)//Para generar números autoincrementados
+	private int id_Libro;
+	private String titulo;
+}

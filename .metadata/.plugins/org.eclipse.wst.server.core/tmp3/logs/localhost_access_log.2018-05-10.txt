@@ -1,0 +1,7 @@
+127.0.0.1 - - [10/May/2018:15:14:31 +0200] "GET / HTTP/1.1" 404 993
+0:0:0:0:0:0:0:1 - - [10/May/2018:15:14:41 +0200] "GET /z.struts.hospital/index.jsp HTTP/1.1" 200 1102
+0:0:0:0:0:0:0:1 - - [10/May/2018:15:14:42 +0200] "GET /z.struts.hospital/img/hospital.jpg HTTP/1.1" 404 1035
+0:0:0:0:0:0:0:1 - - [10/May/2018:15:14:43 +0200] "GET /favicon.ico HTTP/1.1" 404 1004
+0:0:0:0:0:0:0:1 - - [10/May/2018:15:14:43 +0200] "GET /favicon.ico HTTP/1.1" 404 1004
+0:0:0:0:0:0:0:1 - - [10/May/2018:15:15:05 +0200] "GET /z.struts.hospital/consulta.action HTTP/1.1" 200 1949
+0:0:0:0:0:0:0:1 - - [10/May/2018:15:15:19 +0200] "GET /z.struts.hospital/mandarid.action?libro.id_Libro=11 HTTP/1.1" 200 1908

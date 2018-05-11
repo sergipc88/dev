@@ -1,0 +1,24 @@
+package com.LibroBO;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import com.HibernateUtil.HibernateUtil;
+import com.LibroEntity.Libro;
+
+
+public class LibroBO {
+	
+	
+	public void alta(Libro lib) {
+		
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Transaction transaction = session.beginTransaction();	
+		session.save(lib);
+		transaction.commit();
+		session.close();
+		
+		
+	}
+
+}

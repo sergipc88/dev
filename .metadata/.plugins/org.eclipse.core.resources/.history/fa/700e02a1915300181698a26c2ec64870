@@ -1,0 +1,23 @@
+package Actions;
+
+import java.util.Date;
+import java.util.List;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+
+
+public class AltaAction extends ActionSupport {
+
+	String titulo;
+	int precio;
+	
+	LibroBO lBO = new LibroBO();
+	
+	
+	
+
+		
+		
+	
+}

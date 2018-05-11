@@ -1,0 +1,81 @@
+package com.SergiCoches;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+import com.BO.VehiculoBO;
+import com.entity.Siniestro;
+import com.entity.Vehiculo;
+
+public class Main {
+	private static Scanner lector = new Scanner(System.in);
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		VehiculoBO vBO = new VehiculoBO();
+		boolean serverON = true;
+		List<Siniestro>siniestros = new ArrayList<>();
+		
+		
+		
+		while(serverON) {
+			Vehiculo v = new Vehiculo();
+			System.out.println("inserta el vehiculo");
+			System.out.println("matricula");
+			String matricula = lector.next();
+			System.out.println("asientos");
+			int asientos = lector.nextInt();
+			System.out.println("ruedas");
+			int ruedas = lector.nextInt();
+			System.out.println("marcas");
+			String marca = lector.next();
+			
+			v.setMatricula(matricula);
+			v.setAsientos(asientos);
+			v.setRuedas(ruedas);
+			v.setMarca(marca);
+			
+				boolean sinis = true;
+				while(sinis) {
+					
+					System.out.println("insertar sientros ? (s,n) ");
+					String opt = lector.next();
+					if(opt.equals("s")) {
+						
+						Siniestro sini = new Siniestro();	
+						System.out.println("inserta el siniestro");
+						System.out.println("fecha");
+						String fecha = lector.next();
+						SimpleDateFormat s = new SimpleDateFormat("dd-MM-yyyy");					
+						System.out.println("perdida");
+						int perdida = lector.nextInt();
+						
+						try {
+							sini.setFecha(s.parse(fecha));
+							sini.setPerdida(perdida);
+							sini.setVehiculo(v);
+						} catch (ParseException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						
+							
+							siniestros.add(sini);	
+							
+							
+					}else if(opt.equals("n")){
+					 sinis = false;	
+					}
+				
+				}
+				
+				
+				vBO.alta(v, siniestros);
+					
+		}
+		
+	}
+
+}

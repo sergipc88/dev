@@ -1,0 +1,10 @@
+package com.entity;
+
+import java.util.Date;
+
+public class Paciente {
+
+	private String nombre;
+	private String apellido;
+	private Date fecha;
+}

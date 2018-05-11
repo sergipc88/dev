@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<struts>
+	<package name="com.pablomonteserin.action" extends="struts-default">
+		<action name="enlace1">
+			<result>enlace1.jsp</result>
+		</action>
+<!-- nota: no puedo poner dos * seguidos; para eso utilizaremos el _ -->
+		<action name="enlace_*" >
+			<result>/{1}.jsp</result>
+		</action>
+	</package>
+</struts>

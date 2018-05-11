@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<style>
+	body{
+	text-align: center;
+	}
+		.container{
+			text-align: center;
+			background-color: yellow;
+			width: 600px;
+			border: 2px solid black;
+		}
+	</style>
+
+<div class="container">
+	
+	<a href="alta.jsp">A?dir invitado</a> <br>
+	<a href="baja.jsp">Eliminar invitado</a> <br>
+	<a href="consulta.jsp">Consultar lista de invitados</a>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+package Actions;
+
+import BO.PacienteBO;
+
+public class ConsultaAction {
+
+	PacienteBO pBO = new PacienteBO();
+	
+	
+	List<Paciente>lista = pBO.consulta();
+	
+	
+	
+}
